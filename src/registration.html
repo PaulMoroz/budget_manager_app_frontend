@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Увійти</title>
 </head>
 <body>
-
+<div>
+    <h1 class="title">
+        Heavy Wallet
+    </h1>
+    <div class="form login-form">
+        <h3>
+            Вхід
+        </h3>
+        <input id="registration-name" class="input-field" type="text" placeholder="Ім'я">
+        <div class="error-wrapper">
+            <div id="registration-name-error" class="error-text">
+                Некоректно введене ім'я
+            </div>
+        </div>
+        <input id="registration-email" class="input-field" type="text" placeholder="Пошта">
+        <div class="error-wrapper">
+            <div id="registration-email-error" class="error-text">
+                Неправильна пошта
+            </div>
+        </div>
+        <input id="registration-password" class="input-field" type="password" placeholder="Пароль">
+        <div class="registration-password-error">
+            <div id="registration-password-error" class="error-text">
+                Пароль має бути довшим за 8 символів
+            </div>
+        </div>
+        <input id="registration-confirm-password" class="input-field" type="password" placeholder="Повторіть пароль">
+        <div class="error-wrapper">
+            <div id="registration-confirm-error" class="error-text">
+                Пароль і його підтвердження не збігаються
+            </div>
+        </div>
+        <button>
+            Зареєструватися
+        </button>
+        <a>
+            Назад на сторінку входу
+        </a>
+    </div>
+</div>
 </body>
 </html>
