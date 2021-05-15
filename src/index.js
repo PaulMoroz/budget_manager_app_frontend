@@ -1,1 +1,2 @@
-alert(1);
+import { checkField, checkPassword, checkConfirmationPassword}  from './functions';
+import './registration';
