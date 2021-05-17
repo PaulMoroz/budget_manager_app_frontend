@@ -13,12 +13,15 @@
 }
 
 .content {
-  margin-top: 15px;
+  padding: 5px;
   display: flex;
   justify-content: space-around;
 }
 
 .piechart{
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   width: 48%;
   float: left;
   height: calc(100vh - 85px);
@@ -29,11 +32,19 @@
   height: 35px;
 }
 
-.piechart-dates{
-  width: 100%;
-  height: 35px;
+#exactly-piechart{
+  width: 90%;
+  height: calc(100% - 135px);
 }
 
+.piechart-categories{
+  width: 100%;
+  height: 100px;
+  button {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
 
 .categories{
   width: 48%;
@@ -49,5 +60,5 @@
 .add-category{
   width: 100%;
   height: 13%;
-  margin-top: 3%;
+  margin-top: 15px;
 }

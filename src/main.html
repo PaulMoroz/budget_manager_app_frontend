@@ -10,25 +10,25 @@
     Heavy wallet
 </span>
 <span id="user" class="username">
-
+    Петро Моставчук
 </span>
 </header>
 <div class="content">
     <div class="piechart main-form-wrapper" id="piechart-block">
         <div class="piechart-dates">
-            <input id="piechart-date-from" type="date">
+
+            <input id="piechart-date-from" type="date"><span> - </span>
             <input id="piechart-date-to" type="date">
+
         </div>
         <canvas id="exactly-piechart">
 
         </canvas>
         <div class="piechart-categories">
-            <button id="piechart-categories-expenses ">
-                Витрати
-            </button>
-            <button id="piechart-categories-incomes ">
-                Доходи
-            </button>
+            <input type="radio" name="piechart-transaction" id="piechart-transaction-income"><label for="add-transaction-income">Прибуток</label>
+            <input type="radio" name="piechhart-transaction" id="piechart-transaction-expence"><label for="add-transaction-income">Витрата</label>
+
+
         </div>
     </div>
     <div class="categories">
@@ -36,7 +36,27 @@
 
         </div>
         <div class="add-category main-form-wrapper">
+            <div>
+                <input type="radio" name="add-transaction" id="add-transaction-income"><label for="add-transaction-income">Прибуток</label>
+                <input type="text">
+                <span>₴</span>
+                <select>
+                    <option>
 
+                    </option>
+                </select>
+                <button>
+                    +
+                </button>
+            </div>
+            <div>
+                <input type="radio" name="add-transaction" id="add-transaction-expense">
+                <label for="add-transaction-expense">Витрати</label>
+                <input type="text" placeholder="Опис...">
+                <button>
+                    Додати
+                </button>
+            </div>
         </div>
     </div>
 </div>
