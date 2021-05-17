@@ -1,0 +1,56 @@
+body{
+  background: linear-gradient(45deg, rgba(13,189,217,255), rgba(0,75,230,255));
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+
+button{
+  border-radius: 23px;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid white;
+  font-size: 20px;
+  height:45px;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover{
+  background: rgb(88, 153, 255);
+  border-style: none;
+}
+
+
+input {
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  font-size: 20px;
+  padding: 0 20px;
+  color: rgba(255,255,255,0.6);
+}
+
+input:focus{
+  outline: none;
+}
+
+.main-form-wrapper{
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(10,10,10,0.5);
+  border-left-color: rgba(0,0,0,0.1);
+  border-top-color: rgba(0,0,0,0.1);
+}
+
+.error-wrapper{
+  height: 20px;
+  .error-text{
+    font-size: 18px;
+    color: red;
+    display: none;
+  }
+}

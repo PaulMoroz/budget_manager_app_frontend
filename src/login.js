@@ -1,1 +1,1 @@
-alert(1);
+const t = 1;

@@ -5,13 +5,13 @@
     <title>Увійти</title>
 </head>
 <body>
-<div>
-    <h1 class="title">
+<div class="registration-form main-form-wrapper">
+    <h1 class="title text-row">
         Heavy Wallet
     </h1>
-    <div class="form login-form">
-        <h3>
-            Вхід
+    <div >
+        <h3 class="text-row">
+            Реєстрація
         </h3>
         <input id="registration-name" class="input-field" type="text" placeholder="Ім'я">
         <div class="error-wrapper">
@@ -26,21 +26,21 @@
             </div>
         </div>
         <input id="registration-password" class="input-field" type="password" placeholder="Пароль">
-        <div class="registration-password-error">
+        <div class="error-wrapper">
             <div id="registration-password-error" class="error-text">
-                Пароль має бути довшим за 8 символів
+                Пароль має бути від 8 до 12 символів
             </div>
         </div>
         <input id="registration-confirm-password" class="input-field" type="password" placeholder="Повторіть пароль">
         <div class="error-wrapper">
             <div id="registration-confirm-error" class="error-text">
-                Пароль і його підтвердження не збігаються
+                Пароль і його підтвердження різні
             </div>
         </div>
         <button>
             Зареєструватися
         </button>
-        <a>
+        <a href="index.html" class="text-row">
             Назад на сторінку входу
         </a>
     </div>
