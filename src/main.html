@@ -5,15 +5,40 @@
     <title>Головна сторінка</title>
 </head>
 <body>
-<header>
+<header class="head main-form-wrapper">
+<span class="title">
+    Heavy wallet
+</span>
+<span id="user" class="username">
 
+</span>
 </header>
-<div>
+<div class="content">
+    <div class="piechart main-form-wrapper" id="piechart-block">
+        <div class="piechart-dates">
+            <input id="piechart-date-from" type="date">
+            <input id="piechart-date-to" type="date">
+        </div>
+        <canvas id="exactly-piechart">
 
-</div>
-<div>
-    <div> </div>
-    <div> </div>
+        </canvas>
+        <div class="piechart-categories">
+            <button id="piechart-categories-expenses ">
+                Витрати
+            </button>
+            <button id="piechart-categories-incomes ">
+                Доходи
+            </button>
+        </div>
+    </div>
+    <div class="categories">
+        <div class="categories-list main-form-wrapper">
+
+        </div>
+        <div class="add-category main-form-wrapper">
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
