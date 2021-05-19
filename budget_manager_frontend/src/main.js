@@ -29,7 +29,14 @@ export function setDate(){
 export function addTransaction(){
     let transac_value =  document.getElementById("transaction_value").value;
     let transac_name = document.getElementById("transaction_name").value;
+
+    document.getElementById("transaction_value").value =0;
+    document.getElementById("transaction_name").value = '';
+
     let type;
+    if(transac_value*1<=0){
+        return;
+    }
     let id = JSON.parse(localStorage.getItem('user'))["id"]
     if(document.getElementById("add-transaction-income").checked){
         type=1;
@@ -48,6 +55,7 @@ export function addTransaction(){
     var data = JSON.stringify({"category_id":parseInt(category_id) , "amount":parseInt(transac_value) ,
                                     "description":transac_name});
     xmlHttp.send(data);
+
 }
 
 export function showCategory(){
