@@ -1,4 +1,5 @@
 import { checkField, checkPassword, checkConfirmationPassword}  from './functions';
+import {login} from "./login";
 
 
 try{
@@ -16,4 +17,31 @@ try{
     });
 }catch {
 
+}
+export function register(){
+    console.log("works");
+    let name =document.getElementById("registration-name").value;
+    let email = document.getElementById("registration-email").value;
+    let password = document.getElementById("registration-password").value;
+
+    let xmlHttp = new XMLHttpRequest();
+
+    let theUrl =`http://localhost:63342/user`;
+
+    xmlHttp.open( "POST", theUrl, false );
+
+    var data = JSON.stringify({"email": email, "password": password,
+                                    "name":name,"balance":0});
+
+    xmlHttp.send(data);
+
+    if(xmlHttp.status==201){
+        window.location.replace("index.html");
+    }
+
+}
+try{
+    document.getElementById("register_button").addEventListener("click",()=>{register()});
+}catch {
+    
 }

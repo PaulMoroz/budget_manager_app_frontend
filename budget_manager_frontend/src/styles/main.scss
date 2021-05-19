@@ -85,7 +85,9 @@
     margin: 0 5px;
   }
 }
-
+option{
+  background: transparent;
+}
 .transactions-frame{
   flex:6;
   display: flex;
@@ -114,7 +116,6 @@
   }
   .type-line{
     flex: 1;
-    background: tomato;
     height: 6px;
     border-radius: 3px;
   }
@@ -144,6 +145,7 @@
   select{
     margin:10px;
     flex:1;
+    color: black;
   }
 
   .radio + label{

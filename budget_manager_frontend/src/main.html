@@ -44,9 +44,9 @@
             <div class = "add-transactions-top">
                 <input type="radio" name="add-transaction" id="add-transaction-income" class = "radio" checked = "checked">
                 <label for="add-transaction-income">Прибуток</label>
-                <input type="text" placeholder="0">
+                <input type="text" id="transaction_value"placeholder="0">
                 <span class = "currency-sign">₴</span>
-                <select>
+                <select id="category_select">
                     <option>
                         Продукти
                     </option>
@@ -58,8 +58,8 @@
             <div class = "add-transactions-bottom">
                 <input type="radio" name="add-transaction" id="add-transaction-expense" class = "radio">
                 <label for="add-transaction-expense">Витрата</label>
-                <input type="text" placeholder="Опис...">
-                <button class = "add-button">
+                <input type="text" id="transaction_name"placeholder="Опис...">
+                <button class = "add-button" id="add_transaction_button">
                     Додати
                 </button>
             </div>
