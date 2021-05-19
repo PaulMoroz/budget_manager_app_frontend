@@ -1,5 +1,13 @@
 import {login} from "./login";
+import {checkField} from "./functions";
 
+try{
+    document.getElementById('transaction_value').addEventListener('input',()=>{
+        checkField( RegExp(/^[0-9]+$/),'transaction_value');
+    });
+}catch {
+
+}
 
 try {
     document.addEventListener("DOMContentLoaded", ()=>{setDate()});
