@@ -24,7 +24,7 @@ export class MainPageComponent implements OnInit {
     amount :new  FormControl(''),
     description :new FormControl(''),
     type :new FormControl('income'),
-    category_id :new FormControl(''),
+    category_id :new FormControl('0'),
   })
   AddCategoryForm = new FormGroup({
       name :new FormControl(''),
@@ -41,6 +41,7 @@ export class MainPageComponent implements OnInit {
     this.showPopup = 0;
     this.expense_income = 0;
     this.getCategory()
+    // @ts-ignore
 
   }
 
