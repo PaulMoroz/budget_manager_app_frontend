@@ -1,0 +1,29 @@
+.window-wrapper{
+  height: 100vh;
+  display: flex;
+}
+
+.registration-form{
+  width: 400px;
+  .text-row{
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  input,button{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .error-wrapper{
+    width: 80%;
+    margin: 0 auto;
+  }
+  a{
+    cursor: pointer;
+    color: white;
+    text-underline: none;
+  }
+}
