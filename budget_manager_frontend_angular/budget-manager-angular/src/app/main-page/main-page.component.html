@@ -3,7 +3,7 @@
     Heavy wallet
 </span>
 <span id="user" class="username" onload="changeUserName()">
-    User
+    {{this.user!.name}}
 </span>
 </header>
 <div class="content">
@@ -26,6 +26,7 @@
 
         </div>
     </div>
+
     <div class="transactions-frame ">
         <div class="transactions-list main-form-wrapper" id="transaction-list">
             <div class="transaction-item">
@@ -34,41 +35,47 @@
                 <span class = "transaction-amount">370₴</span>
             </div>
         </div>
+      <form [formGroup]="AddTransactionForm" (ngSubmit)="addTransaction()">
         <div class="add-transaction-form main-form-wrapper">
             <div class = "add-transactions-top">
-                <input type="radio" name="add-transaction" id="add-transaction-income" class = "radio" checked = "checked">
+                <input type="radio" formControlName="type"   value="income" id="add-transaction-income" class = "radio" [checked]="(true)">
                 <label for="add-transaction-income">Прибуток</label>
-                <input type="number" min=0 id="transaction_value"  placeholder=0>
+                <input formControlName="amount" type="number" min=0 id="transaction_value"  placeholder=0>
                 <span class = "currency-sign">₴</span>
-                <select id="category_select">
-                    <option>
-                        Продукти
+                <select formControlName="category_id" id="category_select">
+                  <ng-container *ngFor="let category of  categoryList ">
+                    <option *ngIf="(category.type===1&&this.AddTransactionForm.get('type')?.value==='expence')||
+                    (category.type===0&&this.AddTransactionForm.get('type')?.value==='income')"  value="{{category.id}}" >
+                        {{category.name}}
                     </option>
+                  </ng-container>
                 </select>
-                <button class = "plus-button" id="add_category">
+                <button class = "plus-button" id="add_category" (click)="changePopup(1)">
                     +
                 </button>
-                <div id="categoryPopup" class="modal">
+                <div id="categoryPopup" class="modal" *ngIf="showPopup===1">
                   <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <div class="add-category-form">
-                        <input type="color" id="category-color-input"  value="#e66465">
-                        <input type="text" id="category-name-input"placeholder="...">
-                        <button class = "add-button" id="add_category_button">
+                    <span class="close" (click)="changePopup(0)">&times;</span>
+                    <form [formGroup]="AddCategoryForm" (ngSubmit)="addCategory()" class="add-category-form">
+                        <input formControlName="color"  type="color" id="category-color-input"  value="#e66465">
+                        <input formControlName="name" type="text" id="category-name-input"placeholder="...">
+                        <button type="submit" class = "add-button" id="add_category_button">
                             Додати
                         </button>
-                    </div>
+                    </form>
                   </div>
                 </div>
             </div>
             <div class = "add-transactions-bottom">
-                <input type="radio" name="add-transaction" id="add-transaction-expense" class = "radio">
+                <input formControlName="type" type="radio"    value="expence" id="add-transaction-expense" class = "radio">
                 <label for="add-transaction-expense">Витрата</label>
-                <input type="text" id="transaction_name"placeholder="Опис...">
-                <button class = "add-button" id="add_transaction_button">
+                <input formControlName="description" type="text" id="transaction_name"placeholder="Опис...">
+                <button type="submit" class = "add-button" id="add_transaction_button">
                     Додати
                 </button>
             </div>
         </div>
+      </form>
     </div>
+
 </div>

@@ -23,6 +23,7 @@ import {Injectable} from "@angular/core";
         BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

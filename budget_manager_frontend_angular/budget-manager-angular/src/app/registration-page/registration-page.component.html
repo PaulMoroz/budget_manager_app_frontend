@@ -3,40 +3,40 @@
         <h1 class="title text-row" id="logo">
             Heavy Wallet
         </h1>
-        <div >
+        <form [formGroup]="RegistrationForm" (ngSubmit)="register()">
             <h3 class="text-row">
                 Реєстрація
             </h3>
-            <input id="registration-name" class="input-field" type="text" placeholder="Ім'я">
+            <input formControlName="name" id="registration-name" class="input-field" type="text" placeholder="Ім'я">
             <div class="error-wrapper">
                 <div id="registration-name-error" class="error-text">
                     Некоректно введене ім'я
                 </div>
             </div>
-            <input id="registration-email" class="input-field" type="text" placeholder="Пошта">
+            <input formControlName="email" id="registration-email" class="input-field" type="text" placeholder="Пошта">
             <div class="error-wrapper">
                 <div id="registration-email-error" class="error-text">
                     Неправильна пошта
                 </div>
             </div>
-            <input id="registration-password" class="input-field" type="password" placeholder="Пароль">
+            <input formControlName="password" id="registration-password" class="input-field" type="password" placeholder="Пароль">
             <div class="error-wrapper">
                 <div id="registration-password-error" class="error-text">
                     Пароль має бути від 8 до 12 символів
                 </div>
             </div>
-            <input id="registration-confirm-password" class="input-field" type="password" placeholder="Повторіть пароль">
+            <input formControlName="confirmation_password" id="registration-confirm-password" class="input-field" type="password" placeholder="Повторіть пароль">
             <div class="error-wrapper">
                 <div id="registration-confirm-error" class="error-text">
                     Пароль і його підтвердження різні
                 </div>
             </div>
-            <button type="button" id="register_button">
+            <button type="submit" id="register_button">
                 Зареєструватися
             </button>
             <a  routerLink="/" class="text-row">
                 Назад на сторінку входу
             </a>
-        </div>
+        </form>
     </div>
 </div>

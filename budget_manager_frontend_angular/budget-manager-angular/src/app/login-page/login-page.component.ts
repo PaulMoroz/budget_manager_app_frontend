@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,7 @@ export class LoginPageComponent implements OnInit {
 
   LoginForm = new FormGroup({email : new FormControl(''),
                                     password: new FormControl('')});
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
 
 
@@ -20,8 +21,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   login(){
-
+    this.http.get(`http://localhost:63342/user?email=`+
+      `${this.LoginForm.get("email")?.value}&password=${this.LoginForm.get("password")?.value}`).subscribe((data)=>{
+      localStorage.setItem("user",JSON.stringify(data));this.router.navigate(["/main"])},(error) =>{console.log("Error:",error)} );
 
   }
+
 }
 
