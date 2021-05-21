@@ -73,8 +73,14 @@
 
 #piechart-donut{
   flex:1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  vertical-align: center;
 }
-
+#myChart{
+  margin: auto;
+}
 .piechart-radio-buttons{
   height: 50px;
   display: flex;
@@ -86,8 +92,10 @@
   }
 }
 option{
-  background: transparent;
+  background: rgb(8, 68, 117 );
+  color:white;
 }
+
 .transactions-frame{
   flex:6;
   display: flex;
@@ -101,6 +109,15 @@ option{
   padding: 10px;
   overflow: scroll;
 }
+span{
+  cursor: pointer;
+}
+#user{
+  color: white;
+}
+#user:hover{
+  color: #eeee6d;
+}
 
 .transaction-item{
   display: flex;
@@ -113,11 +130,18 @@ option{
   span{
     margin: 0 15px;
     font-size: 25px;
+    cursor: pointer;
   }
   .type-line{
     flex: 1;
     height: 6px;
     border-radius: 3px;
+  }
+}
+.transaction-item:hover{
+   background: rgba(100, 132, 227, 0.42);
+  span{
+    color: #d4d461;
   }
 }
 
@@ -145,7 +169,7 @@ option{
   select{
     margin:10px;
     flex:1;
-    color: black;
+    color: white;
   }
 
   .radio + label{
@@ -164,4 +188,58 @@ option{
   .currency-sign{
     font-size: 30px;
   }
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  background:rgba(8, 68, 117 ,0.5) ;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.add-category-form{
+  display: flex;
+}
+#category-name-input{
+  flex: 7;
+}
+#category-color-input{
+  width: 50px;
+  margin:auto;
+}
+#add_category_button{
+  flex:2;
+  margin:auto;
 }

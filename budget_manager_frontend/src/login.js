@@ -9,7 +9,7 @@ class User{
   }
 }
 let user;
-export function login(){
+export function index(){
 
     let name = document.getElementById("login-name").value;
     let password = document.getElementById("login-password").value;
@@ -32,7 +32,7 @@ export function login(){
     return xmlHttp.responseText;
 }
 try {
-    document.getElementById("login_button").addEventListener("click",()=>{login()});
+    document.getElementById("login_button").addEventListener("click",()=>{index()});
 
 } catch {
 

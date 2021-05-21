@@ -1,4 +1,4 @@
-.user-settings{
+.user-settings {
     // background: red;
     display: flex;
     flex-direction: column;
@@ -11,4 +11,7 @@
 
 .user-info-frame{
     height: calc(100vh - 60px);
+}
+.save-button{
+    margin:auto;
 }

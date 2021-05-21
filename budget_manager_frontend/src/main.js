@@ -1,4 +1,7 @@
-import {login} from "./login";
+import {index} from "./login";
+import { Chart, LineController, DoughnutController, LineElement, ArcElement,
+    PointElement, LinearScale, Title } from "chart.js"
+
 import {checkField} from "./functions";
 
 try{
@@ -18,13 +21,38 @@ try {
    document.getElementById("add_transaction_button").addEventListener("click",()=>{showTransactions()});
    document.getElementById("add-transaction-expense").addEventListener("click",()=>{showCategory()});
    document.getElementById("add-transaction-income").addEventListener("click",()=>{showCategory()});
-
+   document.getElementById("add_category").addEventListener("click",()=>{addCategoryPop()});
+   document.getElementById("user").addEventListener("click",()=>{goToUserWindow()})
 } catch {
 
 }
+try {
+    var categoryPopup = document.getElementById("categoryPopup");
+    var categoryPopupClose = document.getElementsByClassName("close")[0];
+
+    categoryPopupClose.onclick = function () {
+        categoryPopup.style.display = "none";
+    }
+
+
+}catch {
+
+}
+
+export function addCategoryPop() {
+        categoryPopup.style.display = "block";
+    }
+
+export function goToUserWindow() {
+        window.location.replace("usersettings.html");
+    }
+
 export function setDate(){
-    document.getElementById("date-from").value =`2000-01-01` ;
-    document.getElementById("date-to").value = `2030-01-01`;
+    try {
+        document.getElementById("date-from").value = '2000-01-01';
+        document.getElementById("date-to").value = '2030-01-01';
+    }catch{
+    }
 }
 export function addTransaction(){
     let transac_value =  document.getElementById("transaction_value").value;
@@ -59,7 +87,9 @@ export function addTransaction(){
 }
 
 export function showCategory(){
-    document.getElementById("category_select").innerHTML=``;
+    try {
+        document.getElementById("category_select").innerHTML = ``;
+    }catch{}
     let id = JSON.parse(localStorage.getItem('user'))["id"]
 
     let xmlHttp = new XMLHttpRequest();
@@ -89,13 +119,17 @@ export function showCategory(){
     return xmlHttp.responseText;
 }
 export function showTransactions(){
-    document.getElementById("transaction-list").innerHTML='';
+
+    document.getElementById("transaction-list").innerHTML=``;
+
     console.log("works");
     let id = JSON.parse(localStorage.getItem('user'))["id"]
     let color;
 
+
     let start_date = document.getElementById("date-from").value;
     let end_date = document.getElementById("date-to").value;
+
 
     let xmlHttp = new XMLHttpRequest();
     let theUrl =`http://localhost:63342/transaction?user_id=${id}&start_date=${start_date}&end_date=${end_date}`
@@ -108,9 +142,9 @@ export function showTransactions(){
 
     for (var i=0; i<data.length; i++){
         if(data[i]["type"]=="expense"){
-            color ="tomato"
+            color ='rgba(255, 99, 132, 0.5)'
         }else if (data[i]["type"]=="income"){
-            color ="green"
+            color ='rgba(30, 255, 140, 0.5)'
         }
 
         var html = `<div class="transaction-item">\n` +
@@ -120,11 +154,45 @@ export function showTransactions(){
         `        </div>`;
         document.getElementById("transaction-list").innerHTML+=html;
     }
-    document.styleSheets.reload();
     return xmlHttp.responseText;
 }
 export function changeUserName(){
-
-     let name =JSON.parse(localStorage.getItem('user'))["name"]
+    let name = JSON.parse(localStorage.getItem('user'))["name"]
      document.getElementById("user").innerHTML = name;
 }
+export function drawPiechart(){
+    var countries= document.getElementById("myChart").getContext("2d");
+    Chart.register(LineController, LineElement, PointElement, LinearScale, Title, DoughnutController,ArcElement);
+    new Chart(countries,{
+  type: 'doughnut',
+  data: {
+    labels: ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN'],
+    datasets: [{
+      label: '# of Tomatoes',
+      data: [12, 19, 3, 5],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+   	//cutoutPercentage: 40,
+    responsive: false,
+
+  }
+});
+}
+
+
+
+// Get the context of the canvas element we want to select

@@ -1,5 +1,6 @@
 import { checkField, checkPassword, checkConfirmationPassword}  from './functions';
-import {login} from "./login";
+import {index} from "./login";
+import {showTransactions} from "./main";
 
 
 try{
@@ -15,9 +16,11 @@ try{
     document.getElementById('registration-confirm-password').addEventListener('input',()=>{
         checkConfirmationPassword('registration-password','registration-confirm-password','registration-confirm-error');
     });
+
 }catch {
 
 }
+
 export function register(){
     console.log("works");
     let name =document.getElementById("registration-name").value;

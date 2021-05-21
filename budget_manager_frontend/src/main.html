@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Головна сторінка</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
 </head>
 <body id="body_main">
 <header class="header main-form-wrapper">
@@ -22,9 +23,10 @@
             <input id="date-to" type="date" class = "date-to">
 
         </div>
-        <canvas id="piechart-donut">
+        <div id="piechart-donut" >
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
 
-        </canvas>
         <div class="piechart-radio-buttons">
 
             <input type="radio" name="piechart-transaction" id="piechart-transaction-income" class = "radio" value="income" checked="checked"><label for="piechart-transaction-income">Прибутки</label>
@@ -51,9 +53,21 @@
                         Продукти
                     </option>
                 </select>
-                <button class = "plus-button">
+                <button class = "plus-button" id="add_category">
                     +
                 </button>
+                <div id="categoryPopup" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="add-category-form">
+                        <input type="color" id="category-color-input"  value="#e66465">
+                        <input type="text" id="category-name-input"placeholder="...">
+                        <button class = "add-button" id="add_category_button">
+                            Додати
+                        </button>
+                    </div>
+                  </div>
+                </div>
             </div>
             <div class = "add-transactions-bottom">
                 <input type="radio" name="add-transaction" id="add-transaction-expense" class = "radio">
