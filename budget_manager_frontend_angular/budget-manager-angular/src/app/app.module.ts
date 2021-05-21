@@ -7,6 +7,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { UsersettingsPageComponent } from './usersettings-page/usersettings-page.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {Injectable} from "@angular/core";
 
 @NgModule({
   declarations: [
@@ -16,10 +19,11 @@ import { UsersettingsPageComponent } from './usersettings-page/usersettings-page
     RegistrationPageComponent,
     UsersettingsPageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

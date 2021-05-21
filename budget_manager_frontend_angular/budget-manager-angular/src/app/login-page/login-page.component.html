@@ -4,23 +4,23 @@
           <h1 class="text-row" id="logo">
              Heavy Wallet
           </h1>
-          <div>
+          <form [formGroup]="LoginForm" (ngSubmit)="login()">
               <h3 class="text-row">
                   Вхід
               </h3>
-              <input id="login-name" class="input-field" type="text" placeholder="Пошта">
-              <input id="login-password" class="input-field" type="password" placeholder="Пароль">
+              <input formControlName="email"  class="input-field" type="text" placeholder="Пошта">
+              <input formControlName="password" class="input-field" type="password" placeholder="Пароль">
               <div class="error-wrapper">
                   <div id="login-error" class="error-text">
                       Неправильні вхідні дані
                   </div>
               </div>
-              <button type="button" id="login_button">
+              <button type="submit" id="login_button">
                   Увійти
               </button>
-              <a href="registration.html" class="text-row">
+              <a routerLink="/registration"  class="text-row">
                   Створити аккаунт
               </a>
-          </div>
+          </form>
       </div>
   </div>

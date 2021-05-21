@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  LoginForm = new FormGroup({email : new FormControl(''),
+                                    password: new FormControl('')});
+  constructor(private http: HttpClient) { }
+
+
 
   ngOnInit(): void {
   }
 
+  login(){
+
+
+  }
 }
+
