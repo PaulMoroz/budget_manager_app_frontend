@@ -59,4 +59,9 @@ export class UsersettingsPageComponent implements OnInit {
   goToMainPage(){
     this.router.navigate(['/main'])
   }
+
+  logOut(){
+     localStorage.clear();
+     this.router.navigate(['/'])
+  }
 }

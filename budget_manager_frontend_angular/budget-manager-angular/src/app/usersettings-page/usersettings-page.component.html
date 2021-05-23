@@ -53,9 +53,15 @@
             </div>
         </div>
 
-        <button type="submit" class = "save-button" id="save-user-data">
-            Зберегти
-        </button>
+        <div class="settings_buttons">
+          <button type="submit" class = "save-button" id="save-user-data">
+              Зберегти
+          </button>
+
+          <button (click)="logOut()" class = "logout-button" id="logout-button">
+                Вийти
+            </button>
+        </div>
     </form>
 
 </div>

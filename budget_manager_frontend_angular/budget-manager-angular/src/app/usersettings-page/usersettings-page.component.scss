@@ -38,7 +38,20 @@
 }
 .save-button{
     margin:auto;
+    width: 100px;
+}
+.logout-button{
+  margin:auto;
+  width: 100px;
+}
+.logout-button:hover{
+   background: tomato;
 }
 span{
   cursor: pointer;
 }
+.settings_buttons{
+  display: flex;
+
+}
+
