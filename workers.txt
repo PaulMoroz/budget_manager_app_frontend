@@ -1,0 +1,42 @@
+Павло Мороз: 
+	- Html login/registration page, 
+	- JS for login/registratiuon, 
+	- angular TS for login/registration page, 
+	- unittests)
+
+Калапунь Назар: 
+	- Html userSettings page, 
+	- JS for userSettings, 
+	- angular TS for userSettings 
+	- unittests
+
+Пантьо Ростислав: 
+	- Scss login/registration, 
+	- JS for transactions add, 
+	- added Cross-Origin Resource Policy to backend, 
+	- unittests
+
+Волошин Володимир: 
+	- Scss base/common, 
+	- piechart for main page, 
+	- angular TS main page(transactions list+sorting by dates), 
+	- unittests
+
+Микицький Назар: 
+	- Scss main page, 
+	- JS for main page, 
+	- angular TS for registration, 
+	- angular TS main page(category add), 
+	- unittests
+
+Пасемко Андрій: 
+	- Scss userSettings page, 
+	- piechart for main page, 
+	- angular TS main page(Piechart), 
+	- unittests
+
+Калиш Богдан: 
+	- Html main page, 
+	- Scss main page, 
+	- angular TS main page(transaction add), 
+	- unittests
