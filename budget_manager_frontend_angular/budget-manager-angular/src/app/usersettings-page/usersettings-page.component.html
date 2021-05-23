@@ -1,13 +1,13 @@
 <header class="header main-form-wrapper">
-    <span class="title">
+    <span class="title" (click)="goToMainPage()">
         Heavy wallet
     </span>
     <span id="user" class="username">
-        Петро Моставчук
+        {{this.user!.name}}
     </span>
 </header>
 <div class="user-info-frame window-wrapper">
-    <div class = "user-settings main-form-wrapper">
+    <form [formGroup]="UserSettingsForm" (ngSubmit)="update()" class = "user-settings main-form-wrapper">
         <h1 class="title text-row">
             Ваші особисті дані
         </h1>
@@ -19,7 +19,7 @@
             ім'я
         </label>
 -->
-        <input id="registration-name" class="input-field" type="text" placeholder="Ім'я">
+        <input formControlName="name" id="registration-name" class="input-field" type="text" placeholder="Ім'я">
         <div class="error-wrapper">
             <div id="registration-name-error" class="error-text">
                 Некоректно введене ім'я
@@ -30,7 +30,7 @@
             пошта
         </label>
 -->
-        <input id="registration-email" class="input-field" type="text" placeholder="Пошта">
+        <input formControlName="email" id="registration-email" class="input-field" type="text" placeholder="Пошта">
         <div class="error-wrapper">
             <div id="registration-email-error" class="error-text">
                 Неправильна пошта
@@ -40,22 +40,22 @@
         <label class="field-title">
             Зміна пароля
         </label>
-        <input id="registration-password" class="input-field" type="password" placeholder="Пароль">
+        <input formControlName="password" id="registration-password" class="input-field" type="password" placeholder="Пароль">
         <div class="error-wrapper">
             <div id="registration-password-error" class="error-text">
                 Пароль має бути від 8 до 12 символів
             </div>
         </div>
-        <input id="registration-confirm-password" class="input-field" type="password" placeholder="Новий пароль">
+        <input formControlName="confirm_password" id="registration-confirm-password" class="input-field" type="password" placeholder="Новий пароль">
         <div class="error-wrapper">
             <div id="registration-confirm-error" class="error-text">
                 Пароль і його підтвердження різні
             </div>
         </div>
 
-        <button class = "save-button" id="save-user-data">
+        <button type="submit" class = "save-button" id="save-user-data">
             Зберегти
         </button>
-    </div>
+    </form>
 
 </div>

@@ -1,3 +1,27 @@
+.header{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  border-radius: 0;
+  justify-content: flex-start;
+
+  .title{
+    float: left;
+    display: block;
+    flex: 1;
+    font-size: 25px;
+    margin: 13px 20px;
+    vertical-align: middle;
+  }
+  .username{
+    float: right;
+    display: block;
+    flex: 1;
+    font-size: 25px;
+    margin: 13px 20px;
+    text-align: right;
+  }
+}
 .user-settings {
     // background: red;
     display: flex;
@@ -14,4 +38,7 @@
 }
 .save-button{
     margin:auto;
+}
+span{
+  cursor: pointer;
 }

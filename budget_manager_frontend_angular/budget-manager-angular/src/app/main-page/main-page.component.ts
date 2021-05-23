@@ -299,4 +299,8 @@ export class MainPageComponent implements OnInit {
   parse(value: any) {
     return JSON.stringify(value);
   }
+  goToUserSettings(){
+    this.router.navigate(["/usersettings"]);
+  }
 }
+

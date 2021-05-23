@@ -2,7 +2,7 @@
 <span class="title">
     Heavy wallet
 </span>
-<span id="user" class="username" onload="changeUserName()">
+<span id="user" class="username" (click)="goToUserSettings()">
     {{this.user!.name}}
 </span>
 </header>
@@ -18,15 +18,15 @@
         <div id="piechart-donut" >
             <canvas id="myChart" width="450" height="450"></canvas>
         </div>
-        
+
         <form [formGroup]="PiechartTypeForm">
             <div class="piechart-radio-buttons">
 
                 <input type="radio" formControlName="type" id="piechart-transaction-income" class = "radio" value="income" checked="checked"><label for="piechart-transaction-income">Прибутки</label>
                 <input type="radio" formControlName="type" id="piechart-transaction-expence" class = "radio" value="expense"><label for="piechart-transaction-expence">Витрати</label>
-    
+
             </div>
-        </form> 
+        </form>
     </div>
 
     <div class="transactions-frame ">
