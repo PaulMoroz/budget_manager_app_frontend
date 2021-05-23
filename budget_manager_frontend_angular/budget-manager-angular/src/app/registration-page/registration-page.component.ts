@@ -28,5 +28,7 @@ export class RegistrationPageComponent implements OnInit {
     }).subscribe((data)=>{
       this.router.navigate(["/"])
     })
+
+    return 0;
   }
 }

@@ -77,7 +77,7 @@ export class MainPageComponent implements OnInit {
     );
 
     // @ts-ignore
-    this.user = JSON.parse(localStorage.getItem('user').toString());
+    this.user = JSON.parse(localStorage.getItem('user')?.toString());
     this.showPopup = 0;
     this.expense_income = 0;
     this.categoryList = [];
@@ -137,6 +137,7 @@ export class MainPageComponent implements OnInit {
       this.updateChart();
     });
   }
+
 
   updateChart() {
     let labelList: String[] = [];
@@ -210,10 +211,13 @@ export class MainPageComponent implements OnInit {
     console.log('labels: ', labelList);
     console.log('amounts: ', amountList);
     console.log('colors: ', colorList);
+
+    return 0;
   }
 
   changePopup(action: number) {
     this.showPopup = action;
+    return 0;
   }
 
   updateTrasactions() {
@@ -230,6 +234,7 @@ export class MainPageComponent implements OnInit {
         this.transactionList = data;
         this.updateChart();
       });
+    return 0;
   }
 
   addCategory() {
@@ -245,7 +250,6 @@ export class MainPageComponent implements OnInit {
     } else if (
       this.AddTransactionForm.get('type')?.value.toString() === 'expence'
     ) {
-      console.log('works');
       type = 1;
       console.log(type);
     }
@@ -262,6 +266,7 @@ export class MainPageComponent implements OnInit {
         this.getCategory();
         this.updateChart();
       });
+    return 0;
   }
   addTransaction() {
     let amount = this.AddTransactionForm.get('amount')?.value;
@@ -283,6 +288,7 @@ export class MainPageComponent implements OnInit {
       this.AddTransactionForm.get('amount')?.setValue('');
       this.AddTransactionForm.get('description')?.setValue('');
     }
+    return 0;
   }
 
   getCategory() {
@@ -294,13 +300,12 @@ export class MainPageComponent implements OnInit {
         console.log('categories: ', data);
         this.categoryList = data;
       });
+    return 0;
   }
 
-  parse(value: any) {
-    return JSON.stringify(value);
-  }
   goToUserSettings(){
     this.router.navigate(["/usersettings"]);
+    return 0;
   }
 }
 

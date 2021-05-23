@@ -25,7 +25,7 @@ export class UsersettingsPageComponent implements OnInit {
   ngOnInit(): void {
 
     // @ts-ignore
-    this.user = JSON.parse(localStorage.getItem('user').toString());
+    this.user = JSON.parse(localStorage.getItem('user')?.toString());
     // @ts-ignore
     this.UserSettingsForm.get("name")?.setValue(this.user?.name);
     this.UserSettingsForm.get("email")?.setValue(this.user?.email)
@@ -54,14 +54,17 @@ export class UsersettingsPageComponent implements OnInit {
       localStorage.setItem("user",JSON.stringify(new_user));this.router.navigate(["/main"])},
         (error) =>{console.log("Error:",error)} );
     }
+    return 0;
   }
 
   goToMainPage(){
     this.router.navigate(['/main'])
+    return 0;
   }
 
   logOut(){
      localStorage.clear();
      this.router.navigate(['/'])
+     return 0;
   }
 }
