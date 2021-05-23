@@ -45,7 +45,7 @@ int ApplicationService::main(const std::vector<std::string>& args){
     Poco::Net::HTTPServerParams::Ptr parameters = new Poco::Net::HTTPServerParams();
     parameters->setTimeout(10000);
     parameters->setMaxQueued(100);
-    parameters->setMaxThreads(4);
+    parameters->setMaxThreads(1);
 
     const Poco::Net::ServerSocket socket(Socket("localhost:63342"));
 

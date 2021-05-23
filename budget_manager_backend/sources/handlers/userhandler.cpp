@@ -145,12 +145,10 @@ void UserHandler::handleRequest(
 
     }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_DELETE){
         del(request, response);
-    }
-    else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_OPTIONS){
+    }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_OPTIONS){
         response.setStatus(Poco::Net::HTTPServerResponse::HTTP_OK);
         response.send();
-    }
-    else{
+    }else{
         response.setStatus(Poco::Net::HTTPServerResponse::HTTP_BAD_REQUEST);
 
         response.send();

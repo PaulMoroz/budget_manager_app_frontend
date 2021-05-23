@@ -84,6 +84,13 @@ void CategoryHandler::del(Poco::Net::HTTPServerRequest& request, Poco::Net::HTTP
 
 void CategoryHandler::handleRequest(Poco::Net::HTTPServerRequest &request, Poco::Net::HTTPServerResponse &response)
 {
+
+    response.set("Access-Control-Allow-Origin","*");
+    response.set("Allow","OPTIONS, HEAD, GET, POST, PUT, DELETE");
+    response.set("Access-Control-Allow-Headers","Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token,Origin");
+    response.set("Access-Control-Allow-Methods", "OPTIONS, HEAD, GET, POST, PUT, DELETE");
+    response.set("Connection","Open");
+
     if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_GET){
         get(request, response);
     }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST){
@@ -92,6 +99,13 @@ void CategoryHandler::handleRequest(Poco::Net::HTTPServerRequest &request, Poco:
         put(request, response);
     }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_DELETE){
         del(request, response);
+    }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_OPTIONS){
+        response.setStatus(Poco::Net::HTTPServerResponse::HTTP_OK);
+        response.send();
+    }else{
+        response.setStatus(Poco::Net::HTTPServerResponse::HTTP_BAD_REQUEST);
+
+        response.send();
     }
 }
 

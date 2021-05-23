@@ -8,32 +8,37 @@
 </header>
 <div class="content">
     <div class="piechart-frame main-form-wrapper" id="piechart-block">
-        <div class="piechart-dates">
-
-            <input id="date-from" type="date" class = "date-from">
-            <div class="date-divider"></div>
-            <input id="date-to" type="date" class = "date-to">
-
-        </div>
+        <form [formGroup]="DatesForm">
+            <div class="piechart-dates">
+                <input id="date-from" type="date" class = "date-from" formControlName="fromDate">
+                <div class="date-divider"></div>
+                <input id="date-to" type="date" class = "date-to" formControlName="toDate">
+            </div>
+        </form>
         <div id="piechart-donut" >
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <canvas id="myChart" width="450" height="450"></canvas>
         </div>
+        
+        <form [formGroup]="PiechartTypeForm">
+            <div class="piechart-radio-buttons">
 
-        <div class="piechart-radio-buttons">
-
-            <input type="radio" name="piechart-transaction" id="piechart-transaction-income" class = "radio" value="income" checked="checked"><label for="piechart-transaction-income">Прибутки</label>
-            <input type="radio" name="piechart-transaction" id="piechart-transaction-expence" class = "radio" value="expence"><label for="piechart-transaction-expence">Витрати</label>
-
-        </div>
+                <input type="radio" formControlName="type" id="piechart-transaction-income" class = "radio" value="income" checked="checked"><label for="piechart-transaction-income">Прибутки</label>
+                <input type="radio" formControlName="type" id="piechart-transaction-expence" class = "radio" value="expense"><label for="piechart-transaction-expence">Витрати</label>
+    
+            </div>
+        </form> 
     </div>
 
     <div class="transactions-frame ">
         <div class="transactions-list main-form-wrapper" id="transaction-list">
-            <div class="transaction-item">
-                <span class = "transaction-description">Купив картоплі</span>
-                <div class = "type-line"></div>
-                <span class = "transaction-amount">370₴</span>
-            </div>
+            <ng-container *ngFor="let transaction of transactionList">
+                <div class="transaction-item">
+                    <span class = "transaction-description">{{transaction.description}}</span>
+                    <div class = "type-line" *ngIf="transaction.type==='income'" style="background: green;"></div>
+                    <div class = "type-line" *ngIf="transaction.type==='expense'" style="background: tomato;" ></div>
+                    <span class = "transaction-amount">{{transaction.amount}}₴</span>
+                </div>
+            </ng-container>
         </div>
       <form [formGroup]="AddTransactionForm" (ngSubmit)="addTransaction()">
         <div class="add-transaction-form main-form-wrapper">
@@ -43,9 +48,9 @@
                 <input formControlName="amount" type="number" min=0 id="transaction_value"  placeholder=0>
                 <span class = "currency-sign">₴</span>
                 <select formControlName="category_id" id="category_select">
-                  <ng-container *ngFor="let category of  categoryList ">
+                    <ng-container *ngFor="let category of categoryList">
                     <option *ngIf="(category.type===1&&this.AddTransactionForm.get('type')?.value==='expence')||
-                    (category.type===0&&this.AddTransactionForm.get('type')?.value==='income')"  value="{{category.id}}" >
+                    (category.type===0&&this.AddTransactionForm.get('type')?.value==='income')"  value = {{category.id}}>
                         {{category.name}}
                     </option>
                   </ng-container>
@@ -67,7 +72,7 @@
                 </div>
             </div>
             <div class = "add-transactions-bottom">
-                <input formControlName="type" type="radio"    value="expence" id="add-transaction-expense" class = "radio">
+                <input formControlName="type" type="radio" value="expence" id="add-transaction-expense" class = "radio">
                 <label for="add-transaction-expense">Витрата</label>
                 <input formControlName="description" type="text" id="transaction_name"placeholder="Опис...">
                 <button type="submit" class = "add-button" id="add_transaction_button">

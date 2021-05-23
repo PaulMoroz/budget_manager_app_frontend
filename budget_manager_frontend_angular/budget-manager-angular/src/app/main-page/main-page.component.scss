@@ -28,7 +28,7 @@
   @media (max-width: 1090px){
     flex-direction: column;
     .piechart-frame{
-      min-height: 500px;
+      min-height: 600px;
       min-width: 400px;
     }
 
@@ -158,13 +158,14 @@ span{
   align-items: center;
   padding: 5px 18px;
 
-  input[type = "text"]{
+  input[type = "text"], input[type = "number"]{
     flex:1;
     width: 150px;
     margin:10px;
     min-width: 0;
     min-height: 0;
   }
+
 
   select{
     margin:10px;

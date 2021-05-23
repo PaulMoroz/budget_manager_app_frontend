@@ -25,7 +25,7 @@ void TransactionHandler::get(Poco::Net::HTTPServerRequest& request, Poco::Net::H
 
     QString select = "SELECT transaction.*, category.name, category.color, category.type FROM category INNER JOIN "
                      "transaction ON category.id = transaction.category_id WHERE category.user_id = "+ user_id +
-                     " AND transaction.date > '"+start_date+"'::date AND transaction.date < '"+end_date+"'::date";
+                     " AND transaction.date > '"+start_date+"'::date AND transaction.date < '"+end_date+"'::date ORDER BY transaction.id DESC";
 
     QVector<Transaction> transactions = repository->select(select);
     TransactionJsonBuilder transactionJsonBuilder;
@@ -80,6 +80,12 @@ void TransactionHandler::handleRequest(
     Poco::Net::HTTPServerRequest& request,
     Poco::Net::HTTPServerResponse& response){
 
+    response.set("Access-Control-Allow-Origin","*");
+    response.set("Allow","OPTIONS, HEAD, GET, POST, PUT, DELETE");
+    response.set("Access-Control-Allow-Headers","Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token,Origin");
+    response.set("Access-Control-Allow-Methods", "OPTIONS, HEAD, GET, POST, PUT, DELETE");
+    response.set("Connection","Open");
+
     if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_GET){
            get(request, response);
     }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_POST){
@@ -88,5 +94,12 @@ void TransactionHandler::handleRequest(
         put(request, response);
     }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_DELETE){
         del(request, response);
+    }else if(request.getMethod() == Poco::Net::HTTPRequest::HTTP_OPTIONS){
+        response.setStatus(Poco::Net::HTTPServerResponse::HTTP_OK);
+        response.send();
+    }else{
+        response.setStatus(Poco::Net::HTTPServerResponse::HTTP_BAD_REQUEST);
+
+        response.send();
     }
 }
