@@ -1,0 +1,24 @@
+.imageBob {
+  text-align: center;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+button
+{
+    color: #ba6d06;
+    font-size: 30px;
+    background-color: yellow;
+    width: 170px;
+    height: 100px;
+    radius: 10;
+    border-radius: 20%;
+
+}
+
+button:hover
+{
+    background-color: #fd9687;
+}
